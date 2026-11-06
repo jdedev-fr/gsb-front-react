@@ -5,6 +5,7 @@ import Header from './components/header/header'
 import VisitorCard from './components/visitorCard/visitorCard'
 import Filtre from './components/filtre/filtre'
 import { useState } from 'react'
+import Dashboard from './components/dashboard/dashboard'
 
 const visiteurs = [
   {
@@ -85,6 +86,8 @@ function App() {
         }
         )}
 
+
+        <Dashboard />
       </main>
       <Footer />
     </>

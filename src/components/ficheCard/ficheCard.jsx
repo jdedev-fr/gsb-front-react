@@ -8,8 +8,8 @@ export default function FicheCard({ fiche }) {
             <h3 onClick={() => setIsOpen(!isOpen)}>Numéro : {fiche.id} {isOpen ? "^" : "v"}</h3>
             {isOpen && <>
                 <p>mois : {fiche.mois}</p>
-                <p>total :{fiche.montant}</p>
-                <p>statut : {fiche.etat}</p>
+                <p>total :{fiche.montantValide}</p>
+                <p>statut : {fiche.etat || "VA"}</p>
             </>}
         </article>
     )
