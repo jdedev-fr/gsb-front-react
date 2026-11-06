@@ -6,6 +6,11 @@ import VisitorCard from './components/visitorCard/visitorCard'
 import Filtre from './components/filtre/filtre'
 import { useState } from 'react'
 import Dashboard from './components/dashboard/dashboard'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AccueilPage from './pages/accueilPage'
+import ListeFraisPage from './pages/listeFraisPage'
+import ErrorPage from './pages/errorPage'
+import DetailFraisPage from './pages/detailFraisPage'
 
 const visiteurs = [
   {
@@ -69,10 +74,11 @@ function App() {
   }
 
   return (
-    <>
+
+    <BrowserRouter>
       <Header />
       <main>
-        <h2>Liste des visiteurs</h2>
+        {/* <h2>Liste des visiteurs</h2>
         {visiteurs.map((v) => {
 
           return <VisitorCard key={v.matricule} visiteur={v} />
@@ -87,10 +93,17 @@ function App() {
         )}
 
 
-        <Dashboard />
+        <Dashboard /> */}
+        <Routes>
+          <Route path='/' element={<AccueilPage />} />
+          <Route path='/listes-frais' element={<ListeFraisPage />} />
+          <Route path='/listes-frais/:id' element={<DetailFraisPage />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
       </main>
       <Footer />
-    </>
+    </BrowserRouter>
+
   )
 }
 
